@@ -112,7 +112,11 @@ function App() {
 
       <nav className="barra-lateral">
         <div className="mini-avatar-contenedor">
-          <img src="/Letra.png" alt="Letra" className="mini-avatar" />
+          <img
+            src={`${import.meta.env.BASE_URL}Letra.png`}
+            alt="Letra"
+            className="mini-avatar"
+          />
         </div>
         <FaHome className={`iconos ${seccionActiva === 'inicio' ? 'activo' : ''}`} onClick={() => setSeccionActiva('inicio')}
           title="Inicio"
@@ -248,7 +252,7 @@ function App() {
                 <span>APIS</span>
                 <SistemaEstrellas nivel={3} />
               </div>
-      
+
               <div className="item-habilidad">
                 <span>Excel</span>
                 <SistemaEstrellas nivel={4} />
