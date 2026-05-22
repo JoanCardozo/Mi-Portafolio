@@ -459,6 +459,162 @@
   opacity: 0;
 }
 
+/* --- ESTILOS PARA PROYECTOS --- */
+/* ===================================================
+   BLOQUE DE PROYECTOS COMPLETAMENTE INDEPENDIENTE
+   =================================================== */
+
+.seccion-proyectos-bloque {
+  width: 100%;
+  max-width: 1000px; /* Alineado con tu max-width de inicio */
+  margin: 60px auto 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.subtitulo-proyectos {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Forzamos un Grid limpio que no hereda del flexbox de experiencia */
+.grid-proyectos-componente {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 30px !important;
+  width: 100%;
+}
+
+/* La tarjeta con fondo sólido para ocultar las partículas detrás */
+.tarjeta-proyecto-individual {
+  background: #121212 !important; /* Fondo negro sólido profundo */
+  border: 1px solid #252525 !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.tarjeta-proyecto-individual:hover {
+  transform: translateY(-5px);
+  border-color: #00ffcc !important; /* Tu verde neón */
+  box-shadow: 0 10px 25px rgba(0, 255, 204, 0.15);
+}
+
+/* Diseño del contenedor de la imagen */
+.capa-imagen-proyecto {
+  width: 100%;
+  height: 180px;
+  background: #1a1a1a;
+  position: relative;
+  border-bottom: 1px solid #252525;
+}
+
+.img-proyecto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Si no encuentra imagen, muestra un contenedor estilo cyberpunk */
+.fallback-imagen-neon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+}
+
+.fallback-imagen-neon span {
+  font-size: 2rem;
+  font-weight: 800;
+  color: rgba(0, 255, 204, 0.2);
+  border: 2px dashed rgba(0, 255, 204, 0.2);
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* Contenido interno */
+.cuerpo-tarjeta-proyecto {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cuerpo-tarjeta-proyecto h3 {
+  margin: 0 0 10px 0 !important;
+  color: #fff !important;
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  text-align: left !important;
+}
+
+.cuerpo-tarjeta-proyecto p {
+  color: #888 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.5 !important;
+  margin-bottom: 20px !important;
+  text-align: left !important;
+}
+
+/* Badges de tecnologías */
+.tecnologias-proyecto-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  justify-content: flex-start;
+}
+
+.tag-tech-neon {
+  background: rgba(0, 255, 204, 0.05) !important;
+  color: #00ffcc !important;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border: 1px solid rgba(0, 255, 204, 0.15);
+}
+
+/* Contenedor de botones horizontal */
+.botones-proyecto-enlaces {
+  display: flex !important;
+  flex-direction: row !important; /* Forzamos distribución horizontal */
+  gap: 15px !important;
+  margin-top: auto; /* Empuja los botones al fondo de la tarjeta */
+  width: 100%;
+}
+
+/* Botones corregidos para que no se estiren verticalmente */
+.btn-proyecto-accion {
+  flex: 1; /* Distribuye espacio por igual */
+  background: transparent !important;
+  color: #00ffcc !important;
+  border: 1px solid #00ffcc !important;
+  padding: 10px 0 !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  font-size: 0.85rem !important;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.btn-proyecto-accion:hover {
+  background: #00ffcc !important;
+  color: #121212 !important;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+}
+
 @keyframes aparecer {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }

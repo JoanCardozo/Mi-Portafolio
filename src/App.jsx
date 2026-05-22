@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'; // ¡ASEGÚRATE DE QUE SOLO ESTÉ ESTA LÍNEA DE REACT!
+import { useState, useEffect } from 'react';
 import './App.css';
 import Mi_foto from './assets/Mi_foto.png';
 import { FaHome, FaBriefcase, FaStar, FaEnvelope, FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';
@@ -19,12 +19,12 @@ const opcionesParticulas = {
     },
   },
   particles: {
-    color: { value: "#00ffcc" }, // Tu color neón
+    color: { value: "#00ffcc" }, // color neón
     links: {
       color: "#00ffcc",
       distance: 150,
       enable: true,
-      opacity: 0.15, // MUY tenue
+      opacity: 0.15, // tenue
       width: 1,
     },
     move: {
@@ -52,7 +52,6 @@ function App() {
   const [seccionActiva, setSeccionActiva] = useState('inicio');
 
   useEffect(() => {
-    // Solo inicializamos si no se ha hecho ya
     if (!init) {
       initParticlesEngine(async (engine) => {
         await loadSlim(engine);
@@ -95,6 +94,18 @@ function App() {
       )
     }
   ];
+
+  const proyectos = [
+    {
+      id: 1,
+      titulo: "Dashboard de Gestión de Tareas y Productividad",
+      descripcion: "Un aplicativo web interactivo para la gestión del tiempo y análisis de productividad personal. El proyecto cuenta con un panel analítico avanzado en tiempo real y un sistema robusto de configuración de usuario enfocado en las mejores prácticas de desarrollo frontend.",
+      imagen: "/Proyecto1.png",
+      tecnologias: ["React", "Vite", "JavaScript (ES6+)", "Context API / State Management", "CSS3 / Variables Globales"],
+      linkDemo: "https://dashboard-de-gesti-n-de-tareas-y-product-joan-cardozos-projects.vercel.app",
+      linkRepo: "https://github.com/JoanCardozo/Dashboard-de-Gesti-n-de-Tareas-y-Productividad"
+    }
+  ]
 
 
 
@@ -183,6 +194,48 @@ function App() {
                 </div>
               ))}
             </div>
+
+            {/* --- INICIO DE LA NUEVA SECCIÓN DE PROYECTOS --- */}
+            <div className="seccion-proyectos-bloque">
+              <h2 className="subtitulo-proyectos">Mis Proyectos</h2>
+
+              <div className="grid-proyectos-componente">
+                {proyectos.map((proyecto) => (
+                  <div key={proyecto.id} className="tarjeta-proyecto-individual">
+
+                    {/* Contenedor de la imagen */}
+                    <div className="capa-imagen-proyecto">
+                      {proyecto.imagen && !proyecto.imagen.includes("placeholder") ? (
+                        <img src={proyecto.imagen} alt={proyecto.titulo} className="img-proyecto" />
+                      ) : (
+                        <div className="fallback-imagen-neon">
+                          <span>{proyecto.titulo.substring(0, 2).toUpperCase()}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Cuerpo de la tarjeta */}
+                    <div className="cuerpo-tarjeta-proyecto">
+                      <h3>{proyecto.titulo}</h3>
+                      <p>{proyecto.descripcion}</p>
+
+                      <div className="tecnologias-proyecto-tags">
+                        {proyecto.tecnologias.map((tech, index) => (
+                          <span key={index} className="tag-tech-neon">{tech}</span>
+                        ))}
+                      </div>
+
+                      <div className="botones-proyecto-enlaces">
+                        <a href={proyecto.linkDemo} target="_blank" rel="noopener noreferrer" className="btn-proyecto-accion">Ver Demo</a>
+                        <a href={proyecto.linkRepo} target="_blank" rel="noopener noreferrer" className="btn-proyecto-accion">Ver Código</a>
+                      </div>
+                    </div>
+
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* --- FIN DE LA SECCIÓN DE PROYECTOS --- */}
 
             {/* Fondo oscuro para cuando una tarjeta se abre (opcional) */}
             {tarjetaAbierta && <div className="overlay" onClick={() => setTarjetaAbierta(null)}></div>}
