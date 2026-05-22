@@ -519,7 +519,9 @@
 .img-proyecto {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Esto obliga a la imagen a rellenar el espacio sin deformarse */
+  object-position: center; /* Centra la imagen si es muy grande o pequeña */
+  display: block;
 }
 
 /* Si no encuentra imagen, muestra un contenedor estilo cyberpunk */

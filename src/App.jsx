@@ -4,6 +4,8 @@ import Mi_foto from './assets/Mi_foto.png';
 import { FaHome, FaBriefcase, FaStar, FaEnvelope, FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import Proyecto1 from './assets/proyecto1.png';
+
 
 const opcionesParticulas = {
   fpsLimit: 120,
@@ -100,7 +102,7 @@ function App() {
       id: 1,
       titulo: "Dashboard de Gestión de Tareas y Productividad",
       descripcion: "Un aplicativo web interactivo para la gestión del tiempo y análisis de productividad personal. El proyecto cuenta con un panel analítico avanzado en tiempo real y un sistema robusto de configuración de usuario enfocado en las mejores prácticas de desarrollo frontend.",
-      imagen: "/Proyecto1.png",
+      imagen: Proyecto1,
       tecnologias: ["React", "Vite", "JavaScript (ES6+)", "Context API / State Management", "CSS3 / Variables Globales"],
       linkDemo: "https://dashboard-de-gesti-n-de-tareas-y-product-joan-cardozos-projects.vercel.app",
       linkRepo: "https://github.com/JoanCardozo/Dashboard-de-Gesti-n-de-Tareas-y-Productividad"
@@ -205,13 +207,7 @@ function App() {
 
                     {/* Contenedor de la imagen */}
                     <div className="capa-imagen-proyecto">
-                      {proyecto.imagen && !proyecto.imagen.includes("placeholder") ? (
-                        <img src={proyecto.imagen} alt={proyecto.titulo} className="img-proyecto" />
-                      ) : (
-                        <div className="fallback-imagen-neon">
-                          <span>{proyecto.titulo.substring(0, 2).toUpperCase()}</span>
-                        </div>
-                      )}
+                      <img src={proyecto.imagen} alt={proyecto.titulo} className="img-proyecto" />
                     </div>
 
                     {/* Cuerpo de la tarjeta */}
