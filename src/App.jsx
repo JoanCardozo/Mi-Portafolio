@@ -5,14 +5,17 @@ import { FaHome, FaBriefcase, FaStar, FaEnvelope, FaLinkedin, FaGithub, FaWhatsa
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import Proyecto1 from './assets/proyecto1.png';
+import Proyecto2 from './assets/proyecto2.png';
 
-
+// ===================================================
+// CONFIGURACIÓN DE PARTICULAS (TSPARTICLES)
+// ===================================================
 const opcionesParticulas = {
   fpsLimit: 120,
   interactivity: {
     events: {
-      onClick: { enable: true, mode: "push" }, // Añade partículas al hacer clic
-      onHover: { enable: true, mode: "repulse" }, // Las partículas se alejan del mouse
+      onClick: { enable: true, mode: "push" }, 
+      onHover: { enable: true, mode: "repulse" }, 
       resize: true,
     },
     modes: {
@@ -21,12 +24,12 @@ const opcionesParticulas = {
     },
   },
   particles: {
-    color: { value: "#00ffcc" }, // color neón
+    color: { value: "#00ffcc" }, 
     links: {
       color: "#00ffcc",
       distance: 150,
       enable: true,
-      opacity: 0.15, // tenue
+      opacity: 0.15, 
       width: 1,
     },
     move: {
@@ -34,14 +37,14 @@ const opcionesParticulas = {
       enable: true,
       outModes: { default: "out" },
       random: false,
-      speed: 1, // Movimiento muy lento y suave
+      speed: 1, 
       straight: false,
     },
     number: {
       density: { enable: true, area: 800 },
-      value: 80, // Cantidad de partículas
+      value: 80, 
     },
-    opacity: { value: 0.2 }, // Partículas tenues
+    opacity: { value: 0.2 }, 
     shape: { type: "circle" },
     size: { value: { min: 1, max: 3 } },
   },
@@ -53,6 +56,16 @@ function App() {
   const [tarjetaAbierta, setTarjetaAbierta] = useState(null);
   const [seccionActiva, setSeccionActiva] = useState('inicio');
 
+  // ===================================================
+  // ESTADO INTERACTIVO: CONTROL DE HABILIDADES
+  // ===================================================
+  const [habilidadesExpandidas, setHabilidadesExpandidas] = useState({
+    backend: false,
+    frontend: false,
+    videojuegos: false,
+    herramientas: false
+  });
+
   useEffect(() => {
     if (!init) {
       initParticlesEngine(async (engine) => {
@@ -63,7 +76,16 @@ function App() {
     }
   }, [init]);
 
+  const toggleCategoriaHabilidad = (categoria) => {
+    setHabilidadesExpandidas(prev => ({
+      ...prev,
+      [categoria]: !prev[categoria]
+    }));
+  };
 
+  // ===================================================
+  // DATOS: EXPERIENCIA LABORAL
+  // ===================================================
   const experiencias = [
     {
       id: 1,
@@ -97,6 +119,9 @@ function App() {
     }
   ];
 
+  // ===================================================
+  // DATOS: PROYECTOS
+  // ===================================================
   const proyectos = [
     {
       id: 1,
@@ -106,10 +131,62 @@ function App() {
       tecnologias: ["React", "Vite", "JavaScript (ES6+)", "Context API / State Management", "CSS3 / Variables Globales"],
       linkDemo: "https://dashboard-de-gesti-n-de-tareas-y-product-joan-cardozos-projects.vercel.app",
       linkRepo: "https://github.com/JoanCardozo/Dashboard-de-Gesti-n-de-Tareas-y-Productividad"
+    },
+    {
+      id: 2,
+      titulo: "Demo Videojuego de Plataforma 2D",
+      descripcion: "Proyecto personal enfocado en el desarrollo de videojuegos, donde diseñé e implementé la primera versión jugable de un juego 2D estilo Pixel Art utilizando Unity y C#. Durante el desarrollo apliqué principios de Programación Orientada a Objetos (POO) para estructurar la lógica del juego, así como sistemas de control de personaje, detección de colisiones, interacción con el entorno y gestión de estados. También trabajé en la creación e integración de sprites, animaciones mediante Animator, configuración de Colliders, diseño de niveles y mecánicas principales de jugabilidad.",
+      imagen: Proyecto2,
+      tecnologias: ["Unity Engine", "C#", "Programación Orientada a Objetos (POO)", "Pixel Art y manejo de Sprites", "Animator y sistemas de animación", "Colliders y detección de colisiones", "Diseño de niveles", "Gestión de estados y condiciones de juego", "Física 2D", "Mecánicas de gameplay"],
+      linkDemo: "https://youtu.be/dGTI2Q7l8t8",
+      linkRepo: "https://github.com/JoanCardozo/Demo-Videojuego-de-Plataformas-2D"
     }
-  ]
+  ];
 
-
+  // ===================================================
+  // DATOS: HABILIDADES TÉCNICAS (ORGANIZADAS POR CATEGORÍAS)
+  // ===================================================
+  const categoriasHabilidades = {
+    backend: {
+      titulo: "Backend Development",
+      items: [
+        { nombre: "C#", nivel: 5 },
+        { nombre: ".NET", nivel: 4 },
+        { nombre: "SQL SERVER", nivel: 3 },
+        { nombre: "APIS", nivel: 3 },
+      ]
+    },
+    frontend: {
+      titulo: "Frontend Development",
+      items: [
+        { nombre: "HTML 5", nivel: 5 },
+        { nombre: "CSS", nivel: 5 },
+        { nombre: "Javascript", nivel: 4 },
+        { nombre: "React", nivel: 3 },
+        { nombre: "Bootstrap", nivel: 3 },
+        { nombre: "Sistemas de Diseño", nivel: 4 }
+      ]
+    },
+    videojuegos: {
+      titulo: "Videojuegos & Motores",
+      items: [
+        { nombre: "Programacion orientada a Objetos (POO)", nivel: 4 },
+        { nombre: "Unity Engine", nivel: 4 }
+      ]
+    },
+    herramientas: {
+      titulo: "Herramientas & Otras Competencias",
+      items: [
+        { nombre: "Git / GitHub", nivel: 3 },
+        { nombre: "SCRUM", nivel: 2 },
+        { nombre: "Excel", nivel: 4 },
+        { nombre: "Microsoft Office 365", nivel: 4 },
+        { nombre: "Transcripcion", nivel: 4 },
+        { nombre: "Figma", nivel: 3 },
+        { nombre: "Azure", nivel: 3 }
+      ]
+    }
+  };
 
   return (
     <div className="layout-principal">
@@ -123,6 +200,9 @@ function App() {
         </div>
       )}
 
+      {/* ===================================================
+          ESTRUCTURA: BARRA LATERAL NAV
+          =================================================== */}
       <nav className="barra-lateral">
         <div className="mini-avatar-contenedor">
           <img
@@ -135,7 +215,7 @@ function App() {
           title="Inicio"
         />
         <FaBriefcase className={`iconos ${seccionActiva === 'experiencia' ? 'activo' : ''}`} onClick={() => setSeccionActiva('experiencia')}
-
+          title="Experiencia"
         />
         <FaStar className={`iconos ${seccionActiva === 'habilidades' ? 'activo' : ''}`} onClick={() => setSeccionActiva('habilidades')}
           title="Habilidades"
@@ -144,22 +224,25 @@ function App() {
           title="Contacto"
         />
 
-        {/*Redes sociales */}
         <div style={{ marginTop: 'auto', marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
           <a href="https://www.linkedin.com/in/joan-stiven-cardozo-avila-99a15732a/" target="_blank" rel="noopener noreferrer"><FaLinkedin className="iconos" title="LinkedIn" /></a>
           <a href="https://github.com/JoanCardozo" target="_blank" rel="noopener noreferrer"><FaGithub className="iconos" title="GitHub" /></a>
         </div>
       </nav>
 
+      {/* ===================================================
+          ESTRUCTURA: VISTAS PRINCIPALES DEL CONTENIDO
+          =================================================== */}
       <main className="contenido-principal">
-        {/* Sección de inicio */}
+        
+        {/* --- SECCIÓN INICIO --- */}
         {seccionActiva === 'inicio' && (
           <section className="seccion-inicio">
             <div className="bloque-texto">
               <h1 className="titulo-principal">Soy <span className="resaltado">Joan</span>, <br />Programador de Software</h1>
               <p className="descripcion">
-                Técnico en programación orientado al desarrollo de aplicaciones de escritorio y web.
-                Especializado en tecnologías como (C#, .NET y SQL Server) para crear soluciones eficientes.
+                Desarrollador Backend que construye sistemas funcionales, legibles y listos
+                para escalar. Con base técnica en C# / .NET y React.
               </p>
               <button className="btn-primario" onClick={() => setSeccionActiva('experiencia')}>Ver mi trabajo →</button>
             </div>
@@ -168,7 +251,8 @@ function App() {
             </div>
           </section>
         )}
-        {/* Sección de experiencia */}
+
+        {/* --- SECCIÓN EXPERIENCIA LABORAL --- */}
         {seccionActiva === 'experiencia' && (
           <section className="seccion-experiencia">
             <h2 className="subtitulo">Mi Experiencia</h2>
@@ -182,13 +266,12 @@ function App() {
                   <h3>{exp.puesto}</h3>
                   <p className="empresa">{exp.empresa}</p>
 
-                  {/* Solo se muestra si la tarjeta está abierta */}
                   {tarjetaAbierta === exp.id && (
                     <div className="detalle-experiencia">
-                      <p>{exp.descripcion}</p>
+                      <div>{exp.descripcion}</div>
                       <p><strong>Periodo:</strong> {exp.periodo}</p>
                       <button onClick={(e) => {
-                        e.stopPropagation(); // Evita que el clic se confunda
+                        e.stopPropagation(); 
                         setTarjetaAbierta(null);
                       }}>Cerrar</button>
                     </div>
@@ -197,134 +280,64 @@ function App() {
               ))}
             </div>
 
-            {/* --- INICIO DE LA NUEVA SECCIÓN DE PROYECTOS --- */}
+            {/* --- SECCIÓN INTEGRADA: BLOQUE PROYECTOS --- */}
             <div className="seccion-proyectos-bloque">
               <h2 className="subtitulo-proyectos">Mis Proyectos</h2>
 
               <div className="grid-proyectos-componente">
                 {proyectos.map((proyecto) => (
-                  <div key={proyecto.id} className="tarjeta-proyecto-individual">
-
-                    {/* Contenedor de la imagen */}
-                    <div className="capa-imagen-proyecto">
-                      <img src={proyecto.imagen} alt={proyecto.titulo} className="img-proyecto" />
-                    </div>
-
-                    {/* Cuerpo de la tarjeta */}
-                    <div className="cuerpo-tarjeta-proyecto">
-                      <h3>{proyecto.titulo}</h3>
-                      <p>{proyecto.descripcion}</p>
-
-                      <div className="tecnologias-proyecto-tags">
-                        {proyecto.tecnologias.map((tech, index) => (
-                          <span key={index} className="tag-tech-neon">{tech}</span>
-                        ))}
-                      </div>
-
-                      <div className="botones-proyecto-enlaces">
-                        <a href={proyecto.linkDemo} target="_blank" rel="noopener noreferrer" className="btn-proyecto-accion">Ver Demo</a>
-                        <a href={proyecto.linkRepo} target="_blank" rel="noopener noreferrer" className="btn-proyecto-accion">Ver Código</a>
-                      </div>
-                    </div>
-
-                  </div>
+                  <TarjetaProyecto key={proyecto.id} proyecto={proyecto} />
                 ))}
               </div>
             </div>
-            {/* --- FIN DE LA SECCIÓN DE PROYECTOS --- */}
 
-            {/* Fondo oscuro para cuando una tarjeta se abre (opcional) */}
             {tarjetaAbierta && <div className="overlay" onClick={() => setTarjetaAbierta(null)}></div>}
           </section>
         )}
 
+        {/* --- SECCIÓN HABILIDADES COMPLETA --- */}
         {seccionActiva === 'habilidades' && (
           <section className="seccion-habilidades">
-            <h2 className="titulo-seccion">Mis <span className="resaltado">Habilidades</span></h2>
-            <div className="lista-habilidades">
+            <h2 className="titulo-principal">Mis <span className="resaltado">Habilidades</span></h2>
+            
+            {Object.keys(categoriasHabilidades).map((claveCat) => {
+              const categoria = categoriasHabilidades[claveCat];
+              const abierta = habilidadesExpandidas[claveCat];
+              
+              // Muestra un límite de 4 elementos por defecto si no está expandido
+              const habilidadesVisibles = abierta 
+                ? categoria.items 
+                : categoria.items.slice(0, 4);
 
-              <div className="item-habilidad">
-                <span>HTML 5</span>
-                <SistemaEstrellas nivel={5} />
-              </div>
+              return (
+                <div key={claveCat} className="bloque-categoria-habilidad" style={{ width: '100%', marginBottom: '35px' }}>
+                  <h3 style={{ color: '#fff', fontSize: '1.4rem', marginBottom: '15px', textAlign: 'left', borderLeft: '3px solid var(--color-primario)', paddingLeft: '12px', fontWeight: '600' }}>
+                    {categoria.titulo}
+                  </h3>
 
-              <div className="item-habilidad">
-                <span>CSS</span>
-                <SistemaEstrellas nivel={4} />
-              </div>
+                  <div className="lista-habilidades">
+                    {habilidadesVisibles.map((habilidad, idx) => (
+                      <div key={idx} className="item-habilidad">
+                        <span title={habilidad.nombre}>{habilidad.nombre}</span>
+                        <SistemaEstrellas nivel={habilidad.nivel} />
+                      </div>
+                    ))}
+                  </div>
 
-              <div className="item-habilidad">
-                <span>C#</span>
-                <SistemaEstrellas nivel={4} />
-              </div>
+                  {categoria.items.length > 4 && (
+                    <span 
+                      className="trigger-ver-mas" 
+                      onClick={() => toggleCategoriaHabilidad(claveCat)}
+                    >
+                      {abierta ? "Ver menos habilidades ↑" : "Ver todas las habilidades ↓"}
+                    </span>
+                  )}
+                </div>
+              );
+            })}
 
-              <div className="item-habilidad">
-                <span>.NET</span>
-                <SistemaEstrellas nivel={4} />
-              </div>
-
-              <div className="item-habilidad">
-                <span>Javascript</span>
-                <SistemaEstrellas nivel={3} />
-              </div>
-
-              <div className="item-habilidad">
-                <span>SQL SERVER</span>
-                <SistemaEstrellas nivel={3} />
-              </div>
-
-              <div className="item-habilidad">
-                <span>Bootstrap</span>
-                <SistemaEstrellas nivel={3} />
-              </div>
-
-              <div className="item-habilidad">
-                <span>Git / GitHub</span>
-                <SistemaEstrellas nivel={3} />
-              </div>
-
-              <div className="item-habilidad">
-                <span>Programacion orientada a Objetos (POO)</span>
-                <SistemaEstrellas nivel={4} />
-              </div>
-              <div className="item-habilidad">
-                <span>React</span>
-                <SistemaEstrellas nivel={3} />
-              </div>
-
-              <div className="item-habilidad">
-                <span>SCRUM</span>
-                <SistemaEstrellas nivel={2} />
-              </div>
-
-              <div className="item-habilidad">
-                <span>APIS</span>
-                <SistemaEstrellas nivel={3} />
-              </div>
-
-              <div className="item-habilidad">
-                <span>Excel</span>
-                <SistemaEstrellas nivel={4} />
-              </div>
-
-              <div className="item-habilidad">
-                <span>Microsoft Office 365</span>
-                <SistemaEstrellas nivel={4} />
-              </div>
-
-              <div className="item-habilidad">
-                <span>Sistemas de Diseño</span>
-                <SistemaEstrellas nivel={4} />
-              </div>
-
-              <div className="item-habilidad">
-                <span>Transcripcion</span>
-                <SistemaEstrellas nivel={4} />
-              </div>
-            </div>
-
-            {/* Seccion Habilidades Blandas */}
-            <h3 className="subtitulo-seccion">Habilidades Blandas</h3>
+            {/* --- SUB-SECCIÓN HABILIDADES BLANDAS --- */}
+            <h3 className="subtitulo-proyectos" style={{ marginTop: '20px' }}>Habilidades Blandas</h3>
             <div className="contenedor-soft-skills">
               <div className="skill-blanda">
                 <span className="icono-soft">🤝</span>
@@ -360,8 +373,8 @@ function App() {
               </div>
             </div>
 
-            {/* Seccion IDIOMAS */}
-            <h3 className="subtitulo-seccion">Idiomas</h3>
+            {/* --- SUB-SECCIÓN IDIOMAS --- */}
+            <h3 className="subtitulo-proyectos">Idiomas</h3>
             <div className="contenedor-idiomas">
               <div className="bloque-idioma">
                 <div className="emoji-idioma">🗣️</div>
@@ -379,14 +392,13 @@ function App() {
           </section>
         )}
 
+        {/* --- SECCIÓN CONTACTO --- */}
         {seccionActiva === 'contacto' && (
           <section className="seccion-contacto">
             <h2>Contactame</h2>
             <p className="sub-contacto">¿Tienes un proyecto en mente? ¡Hablemos!</p>
 
             <div className="contenedor-metodos">
-
-              {/* Whatsapp Directo */}
               <a href="https://wa.me/573506606850" target="_blank" rel="noopener noreferrer" className="tarjeta-contacto">
                 <div className="circulo-icono wa"><FaWhatsapp /></div>
                 <div className="info">
@@ -395,7 +407,6 @@ function App() {
                 </div>
               </a>
 
-              {/* Correo Electronico */}
               <a href="mailto:j.stiven.cardavi@gmail.com" className="tarjeta-contacto">
                 <div className="circulo-icono email"><FaEnvelope /></div>
                 <div className="info">
@@ -404,7 +415,6 @@ function App() {
                 </div>
               </a>
 
-              {/*ubicacion */}
               <div className="tarjeta-contacto no-link">
                 <div className="circulo-icono loc">📍</div>
                 <div className="info">
@@ -414,17 +424,14 @@ function App() {
               </div>
             </div>
 
-            {/*Disponibilidad */}
             <div className="disponibilidad-badge">
               <span className="punto-verde"></span>Disponible para nuevos proyectos y Ofertas
             </div>
-
           </section>
         )}
 
       </main>
 
-      {/* Particulas de fondo */}
       {init && (
         <Particles
           id="tsparticles"
@@ -436,6 +443,9 @@ function App() {
   )
 }
 
+// ===================================================
+// SUB-COMPONENTE: SISTEMA DE RENDERIZADO DE ESTRELLAS
+// ===================================================
 const SistemaEstrellas = ({ nivel }) => {
   return (
     <div className="estrellas-contenedor">
@@ -449,5 +459,45 @@ const SistemaEstrellas = ({ nivel }) => {
   );
 };
 
-export default App
+// ===================================================
+// SUB-COMPONENTE: TARJETA DE PROYECTO INDIVIDUAL
+// ===================================================
+const TarjetaProyecto = ({ proyecto }) => {
+  const [expandido, setExpandido] = useState(false);
 
+  return (
+    <div className="tarjeta-proyecto-individual">
+      <div className="capa-imagen-proyecto">
+        <img src={proyecto.imagen} alt={proyecto.titulo} className="img-proyecto" />
+      </div>
+
+      <div className="cuerpo-tarjeta-proyecto">
+        <h3>{proyecto.titulo}</h3>
+        
+        <p className={`descripcion-proyecto ${expandido ? 'abierta' : 'comprimida'}`}>
+          {proyecto.descripcion}
+        </p>
+
+        <div className={`tecnologias-proyecto-tags ${expandido ? 'abierta' : 'comprimida'}`}>
+          {proyecto.tecnologias.map((tech, index) => (
+            <span key={index} className="tag-tech-neon">{tech}</span>
+          ))}
+        </div>
+
+        <span 
+          className="trigger-ver-mas" 
+          onClick={() => setExpandido(!expandido)}
+        >
+          {expandido ? "Ver menos ↑" : "Ver más ↓"}
+        </span>
+
+        <div className="botones-proyecto-enlaces">
+          <a href={proyecto.linkDemo} target="_blank" rel="noopener noreferrer" className="btn-proyecto-accion">Ver Demo</a>
+          <a href={proyecto.linkRepo} target="_blank" rel="noopener noreferrer" className="btn-proyecto-accion">Ver Código</a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default App;
