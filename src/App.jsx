@@ -14,8 +14,8 @@ const opcionesParticulas = {
   fpsLimit: 120,
   interactivity: {
     events: {
-      onClick: { enable: true, mode: "push" }, 
-      onHover: { enable: true, mode: "repulse" }, 
+      onClick: { enable: true, mode: "push" },
+      onHover: { enable: true, mode: "repulse" },
       resize: true,
     },
     modes: {
@@ -24,12 +24,12 @@ const opcionesParticulas = {
     },
   },
   particles: {
-    color: { value: "#00ffcc" }, 
+    color: { value: "#00ffcc" },
     links: {
       color: "#00ffcc",
       distance: 150,
       enable: true,
-      opacity: 0.15, 
+      opacity: 0.15,
       width: 1,
     },
     move: {
@@ -37,14 +37,14 @@ const opcionesParticulas = {
       enable: true,
       outModes: { default: "out" },
       random: false,
-      speed: 1, 
+      speed: 1,
       straight: false,
     },
     number: {
       density: { enable: true, area: 800 },
-      value: 80, 
+      value: 80,
     },
-    opacity: { value: 0.2 }, 
+    opacity: { value: 0.2 },
     shape: { type: "circle" },
     size: { value: { min: 1, max: 3 } },
   },
@@ -94,11 +94,19 @@ function App() {
       periodo: "2023 - 2024",
       descripcion: (
         <ul className="lista-experiencia">
-          <li>Desarrollo de funcionalidades utilizando (.NET y C#) para la resolución de requerimientos técnicos.</li>
-          <li>Gestión de tareas y flujo de trabajo bajo la metodología ágil (SCRUM) utilizando (Jira).</li>
-          <li>Diseño y optimización de base de datos en (SQL Server), incluyendo la creación de procedimientos almacenados</li>
-          <li>Levantamiento y documentación técnica de requerimientos para asegurar la escalabilidad del software.</li>
-          <li>Modelado y diseño de sistemas, participando en las fases iniciales de arquitectura de software.</li>
+          <li>Desarrollé API REST en C# y .NET para sincronización OAuth con Google y
+            Facebook, reduciendo fricción en el flujo de autenticación y habilitando
+            login social multiplataforma.</li>
+          <li>Rediseñé componentes de la página principal en Figma e integré los
+            cambios en el ciclo de desarrollo: refinamiento de backlog, estimación de
+            historias y demos de sprint bajo SCRUM.npm
+          </li>
+          <li>Ejecuté migración de sistema legacy a arquitectura moderna, reduciendo
+            deuda técnica e impacto en funcionalidades activas bajo mentorship del
+            Ingeniero Líder.</li>
+          <li>Automatice la validación del flujo crítico de compra con C# y Selenium
+            WebDriver, eliminando pruebas manuales repetitivas y detectando
+            regresiones antes de producción.</li>
         </ul>
       )
     },
@@ -109,11 +117,49 @@ function App() {
       periodo: "2024 - 2024 (8 meses)",
       descripcion: (
         <ul className="lista-experiencia">
-          <li>Gestión integral de incapacidades a nivel nacional, con responsabilidad directa sobre las zonas de Valle del Cauca y Vichada.</li>
-          <li>Uso avanzado del aplicativo Horus y Excel para la organización, auditoría y transcripción de registros médicos.</li>
-          <li>Soporte y atención directa a docentes a nivel nacional, resolviendo incidencias y problemas técnicos con sus trámites de incapacidad.</li>
-          <li>Manejo y consulta de bases de datos para asegurar la integridad de la información de los docentes vinculados al FOMAG.</li>
-          <li>Optimización de los tiempos de respuesta en el procesedimiento de Transcripcion</li>
+          <li>Procesé 1,200 registros técnicos mensuales en Horus, reduciendo el tiempo
+            de ciclo de 8 a 2 minutos por registro (75% de mejora) con tasa de error
+            cero bajo mi responsabilidad.
+          </li>
+          <li>Migré reportes manuales a flujos automatizados en Excel (tablas
+            dinámicas, fórmulas avanzadas), eliminando re-trabajo y reduciendo
+            errores humanos en procesamiento administrativo.</li>
+          <li>Gestioné un backlog estable de 10 incapacidades activas con un flujo de 4
+            consultas/día, sosteniendo un SLA de resolución de 2 días para docentes a
+            nivel nacional.</li>
+          <li>Asumí responsabilidad exclusiva de Valle del Cauca y Vichada, priorizando
+            casos críticos y garantizando continuidad operativa para las regiones de
+            mayor volumen de incidencias.
+          </li>
+        </ul>
+      )
+    },
+    {
+      id: 3,
+      puesto: "Desarrollo Profesional Continuo - 2025",
+      periodo: "2025 - 2026 (En curso)",
+      descripcion: (
+        <ul className="lista-experiencia">
+          <li>Adopté Git y GitHub como flujo estándar de trabajo: branches por
+            feature, commits semánticos y revisión de cambios antes de merge.
+          </li>
+          <li>Construí servicios backend con Node.js: HTTP servers, middleware, manejo
+            asíncrono (async/await) y consumo de APIs externas.
+          </li>
+          <li>Desarrollé interfaces con React.js aplicando arquitectura por
+            componentes, hooks y patrones de composición.
+          </li>
+          <li>Diseñe APIs REST con contratos claros, validación de entradas, manejo
+            estructurado de errores y documentación básica con OpenAPI.
+          </li>
+          <li>
+            Entregué dashboard de gestión de tareas en React con CRUD completo,
+            filtros dinámicos y persistencia de estado.
+          </li>
+          <li>
+            Actualmente desarrollando videojuego 2D pixel art en Unity con C#: física
+            de personaje, sistema de colisiones y arquitectura de escenas.
+          </li>
         </ul>
       )
     }
@@ -234,7 +280,7 @@ function App() {
           ESTRUCTURA: VISTAS PRINCIPALES DEL CONTENIDO
           =================================================== */}
       <main className="contenido-principal">
-        
+
         {/* --- SECCIÓN INICIO --- */}
         {seccionActiva === 'inicio' && (
           <section className="seccion-inicio">
@@ -271,7 +317,7 @@ function App() {
                       <div>{exp.descripcion}</div>
                       <p><strong>Periodo:</strong> {exp.periodo}</p>
                       <button onClick={(e) => {
-                        e.stopPropagation(); 
+                        e.stopPropagation();
                         setTarjetaAbierta(null);
                       }}>Cerrar</button>
                     </div>
@@ -299,14 +345,14 @@ function App() {
         {seccionActiva === 'habilidades' && (
           <section className="seccion-habilidades">
             <h2 className="titulo-principal">Mis <span className="resaltado">Habilidades</span></h2>
-            
+
             {Object.keys(categoriasHabilidades).map((claveCat) => {
               const categoria = categoriasHabilidades[claveCat];
               const abierta = habilidadesExpandidas[claveCat];
-              
+
               // Muestra un límite de 4 elementos por defecto si no está expandido
-              const habilidadesVisibles = abierta 
-                ? categoria.items 
+              const habilidadesVisibles = abierta
+                ? categoria.items
                 : categoria.items.slice(0, 4);
 
               return (
@@ -325,8 +371,8 @@ function App() {
                   </div>
 
                   {categoria.items.length > 4 && (
-                    <span 
-                      className="trigger-ver-mas" 
+                    <span
+                      className="trigger-ver-mas"
                       onClick={() => toggleCategoriaHabilidad(claveCat)}
                     >
                       {abierta ? "Ver menos habilidades ↑" : "Ver todas las habilidades ↓"}
@@ -473,7 +519,7 @@ const TarjetaProyecto = ({ proyecto }) => {
 
       <div className="cuerpo-tarjeta-proyecto">
         <h3>{proyecto.titulo}</h3>
-        
+
         <p className={`descripcion-proyecto ${expandido ? 'abierta' : 'comprimida'}`}>
           {proyecto.descripcion}
         </p>
@@ -484,8 +530,8 @@ const TarjetaProyecto = ({ proyecto }) => {
           ))}
         </div>
 
-        <span 
-          className="trigger-ver-mas" 
+        <span
+          className="trigger-ver-mas"
           onClick={() => setExpandido(!expandido)}
         >
           {expandido ? "Ver menos ↑" : "Ver más ↓"}
