@@ -153,6 +153,65 @@
   font-weight: bold;
   letter-spacing: 2px;
 }
+.seccion-inicio {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ===================================================
+   BOTÓN TRADUCTOR 
+   =================================================== */
+.btn-traductor-custom {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 999;
+  background-color: rgba(18, 18, 18, 0.8);
+  color: var(--color-primario);
+  border: 1px solid var(--color-primario);
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+}
+
+/* Efecto hover interactivo */
+.btn-traductor-custom:hover {
+  background-color: var(--color-primario);
+  color: #121212;
+  box-shadow: 0 0 20px var(--color-primario);
+  transform: translateY(-2px);
+}
+
+/* ===================================================
+   OCULTAR ELEMENTOS DE GOOGLE TRANSLATE
+   =================================================== */
+
+/* Evita de forma estricta que Google empuje el layout hacia abajo */
+body {
+  top: 0 !important;
+  position: static !important;
+}
+
+/* Oculta barras, banners, popups e iconos nativos inyectados por Google */
+#google_translate_element,
+#goog-gt-tt,
+#goog-te-widget-skiptranslate,
+.skiptranslate,
+.goog-te-banner-frame,
+.goog-te-banner,
+.goog-te-balloon-frame,
+.goog-te-gadget-icon,
+.goog-te-gadget-simple,
+iframe.goog-te-banner-frame {
+  display: none !important;
+}
 
 /* --- SECCIÓN EXPERIENCIA --- */
 .seccion-experiencia {
