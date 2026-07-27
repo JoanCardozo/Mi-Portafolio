@@ -384,7 +384,7 @@ function App() {
             <p className="sub-contacto">¿Tienes un proyecto en mente? ¡Hablemos!</p>
 
             <div className="contenedor-metodos">
-              <a href="https://wa.me/573506606850" target="_blank" rel="noopener noreferrer" className="tarjeta-contacto">
+              <a href="https://wa.me/573239913688" target="_blank" rel="noopener noreferrer" className="tarjeta-contacto">
                 <div className="circulo-icono wa"><FaWhatsapp /></div>
                 <div className="info">
                   <span>WhatsApp</span>
