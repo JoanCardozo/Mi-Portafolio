@@ -37,7 +37,7 @@ const ENLACES_NAV = [
 ];
 
 // ===================================================
-// DATOS: NAVEGACIÓN LATERAL (puntos)
+// DATOS: NAVEGACIÓN LATERAL 
 // ===================================================
 const SECCIONES_LATERAL = [
   { id: 'inicio', etiqueta: 'Inicio' },
