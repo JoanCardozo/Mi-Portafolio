@@ -1,0 +1,21 @@
+:root {
+  --fondo-oscuro: #0a0a0a;
+  --color-primario: #00ffcc;
+  --color-secundario: #ff0055;
+  --texto-principal: #ffffff;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+  background-attachment: fixed;
+  background-color: var(--fondo-oscuro);
+  color: var(--texto-principal);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+scroll-behavior: smooth;
+}
