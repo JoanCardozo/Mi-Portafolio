@@ -121,12 +121,11 @@ const PROYECTOS = [
 
 // ===================================================
 // DATOS: STACK TÉCNICO
-// Logos desde CDN (devicon / simple-icons).
-// Si un nodo no tiene "img", usa un ícono de react-icons.
+// Logos desde CDN 
 // ===================================================
 const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons';
 
-// Centro (hub)
+// Centro
 const STACK_CENTRO = {
   id: 'dotnet',
   nombre: '.NET',
@@ -135,7 +134,7 @@ const STACK_CENTRO = {
   blurb: 'Creación de APIs REST y servicios backend.',
 };
 
-// Anillo interno (6)
+// Anillo interno 
 const STACK_INTERNO = [
   { id: 'csharp', nombre: 'C#', img: `${DEVICON}/csharp/csharp-original.svg`, color: '#a179dc', blurb: 'Lógica de negocio y aplicaciones backend.' },
   { id: 'sqlserver', nombre: 'SQL Server', img: `${DEVICON}/microsoftsqlserver/microsoftsqlserver-plain.svg`, color: '#cc2927', blurb: 'Modelado y persistencia de datos.' },
@@ -145,7 +144,7 @@ const STACK_INTERNO = [
   { id: 'scrum', nombre: 'SCRUM', Icono: SiScrumalliance, color: '#009fda', blurb: 'Backlog, sprints y ceremonias ágiles.' },
 ];
 
-// Anillo externo (12)
+// Anillo externo 
 const STACK_EXTERNO = [
   { id: 'html5', nombre: 'HTML5', img: `${DEVICON}/html5/html5-original.svg`, color: '#e34f26', blurb: 'Marcado semántico y accesible.' },
   { id: 'css3', nombre: 'CSS3', img: `${DEVICON}/css3/css3-original.svg`, color: '#1572b6', blurb: 'Estilos, layouts responsive y diseño visual.' },
@@ -161,7 +160,7 @@ const STACK_EXTERNO = [
   { id: 'figma', nombre: 'Figma', img: `${DEVICON}/figma/figma-original.svg`, color: '#a259ff', blurb: 'Rediseño de componentes de interfaz.' },
 ];
 
-// Posición en elipse (en % del contenedor)
+// Posición en elipse 
 function posElipse(indice, total, rx, ry, inicio = -90) {
   const ang = (inicio + (indice * 360) / total) * (Math.PI / 180);
   return { x: 50 + rx * Math.cos(ang), y: 50 + ry * Math.sin(ang) };
@@ -174,7 +173,6 @@ const NODOS_STACK = [
 
 // ===================================================
 // DATOS: HERRAMIENTAS DE IA
-// (x / y en % sobre la escena; coinciden con la elipse SVG)
 // ===================================================
 const HERRAMIENTAS_IA = [
   {
@@ -224,7 +222,7 @@ const HABILIDADES_BLANDAS = [
 ];
 
 // ===================================================
-// COMPONENTE: LOGO (imagen con respaldo)
+// COMPONENTE: LOGO 
 // ===================================================
 function Logo({ nodo }) {
   const [fallo, setFallo] = useState(false);
@@ -298,7 +296,6 @@ function App() {
     return () => clearTimeout(t);
   }, []);
 
-  // Google a veces vuelve a mover el body al traducir: lo reseteamos
   useEffect(() => {
     const observador = new MutationObserver(() => {
       if (document.body.style.top) document.body.style.top = '0px';
