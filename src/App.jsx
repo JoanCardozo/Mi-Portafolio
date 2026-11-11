@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import Mi_foto from './assets/Mi_foto.png';
+import DashboardImg from './assets/Dashboard/Dashboard.png';
+import VideojuegoImg from './assets/Videojuego/Videojuego.png';
+import SafeNetInterfaz from './assets/SafeNet/Interfaz.png';
+import SafeNetDiagrama from './assets/SafeNet/Diagrama.png';
 import {
   FaEnvelope,
   FaLinkedin,
@@ -23,8 +27,6 @@ import {
   FaBullseye,
 } from 'react-icons/fa';
 import { SiScrumalliance } from 'react-icons/si';
-import Proyecto1 from './assets/proyecto1.png';
-import Proyecto2 from './assets/proyecto2.png';
 
 // ===================================================
 // DATOS: NAVEGACIÓN
@@ -52,30 +54,6 @@ const SECCIONES_LATERAL = [
 // ===================================================
 const EXPERIENCIAS = [
   {
-    id: 1,
-    puesto: 'Aprendiz Programador',
-    empresa: 'Aviatur',
-    periodo: '2023 - 2024',
-    detalle: [
-      'Desarrollé API REST en C# y .NET para sincronización OAuth con Google y Facebook, reduciendo fricción en el flujo de autenticación y habilitando login social multiplataforma.',
-      'Rediseñé componentes de la página principal en Figma e integré los cambios en el ciclo de desarrollo: refinamiento de backlog, estimación de historias y demos de sprint bajo SCRUM.',
-      'Ejecuté migración de sistema legacy a arquitectura moderna, reduciendo deuda técnica e impacto en funcionalidades activas bajo mentorship del Ingeniero Líder.',
-      'Automatice la validación del flujo crítico de compra con C# y Selenium WebDriver, eliminando pruebas manuales repetitivas y detectando regresiones antes de producción.',
-    ],
-  },
-  {
-    id: 2,
-    puesto: 'Técnico de Transcripción',
-    empresa: 'SAS Servicios y Asesorías (FOMAG)',
-    periodo: '2024 - 2024 (8 meses)',
-    detalle: [
-      'Procesé 1,200 registros técnicos mensuales en Horus, reduciendo el tiempo de ciclo de 8 a 2 minutos por registro (75% de mejora) con tasa de error cero bajo mi responsabilidad.',
-      'Migré reportes manuales a flujos automatizados en Excel (tablas dinámicas, fórmulas avanzadas), eliminando re-trabajo y reduciendo errores humanos en procesamiento administrativo.',
-      'Gestioné un backlog estable de 10 incapacidades activas con un flujo de 4 consultas/día, sosteniendo un SLA de resolución de 2 días para docentes a nivel nacional.',
-      'Asumí responsabilidad exclusiva de Valle del Cauca y Vichada, priorizando casos críticos y garantizando continuidad operativa para las regiones de mayor volumen de incidencias.',
-    ],
-  },
-  {
     id: 3,
     puesto: 'Desarrollo Profesional Continuo',
     empresa: 'Autoformación',
@@ -89,6 +67,32 @@ const EXPERIENCIAS = [
       'Actualmente desarrollando videojuego 2D pixel art en Unity con C#: física de personaje, sistema de colisiones y arquitectura de escenas.',
     ],
   },
+
+  {
+    id: 2,
+    puesto: 'Técnico de Transcripción',
+    empresa: 'SAS Servicios y Asesorías (FOMAG)',
+    periodo: '2024 - 2024 (8 meses)',
+    detalle: [
+      'Procesé 1,200 registros técnicos mensuales en Horus, reduciendo el tiempo de ciclo de 8 a 2 minutos por registro (75% de mejora) con tasa de error cero bajo mi responsabilidad.',
+      'Migré reportes manuales a flujos automatizados en Excel (tablas dinámicas, fórmulas avanzadas), eliminando re-trabajo y reduciendo errores humanos en procesamiento administrativo.',
+      'Gestioné un backlog estable de 10 incapacidades activas con un flujo de 4 consultas/día, sosteniendo un SLA de resolución de 2 días para docentes a nivel nacional.',
+      'Asumí responsabilidad exclusiva de Valle del Cauca y Vichada, priorizando casos críticos y garantizando continuidad operativa para las regiones de mayor volumen de incidencias.',
+    ],
+  },
+  
+  {
+    id: 1,
+    puesto: 'Aprendiz Programador',
+    empresa: 'Aviatur',
+    periodo: '2023 - 2024',
+    detalle: [
+      'Desarrollé API REST en C# y .NET para sincronización OAuth con Google y Facebook, reduciendo fricción en el flujo de autenticación y habilitando login social multiplataforma.',
+      'Rediseñé componentes de la página principal en Figma e integré los cambios en el ciclo de desarrollo: refinamiento de backlog, estimación de historias y demos de sprint bajo SCRUM.',
+      'Ejecuté migración de sistema legacy a arquitectura moderna, reduciendo deuda técnica e impacto en funcionalidades activas bajo mentorship del Ingeniero Líder.',
+      'Automatice la validación del flujo crítico de compra con C# y Selenium WebDriver, eliminando pruebas manuales repetitivas y detectando regresiones antes de producción.',
+    ],
+  },
 ];
 
 // ===================================================
@@ -96,37 +100,48 @@ const EXPERIENCIAS = [
 // ===================================================
 const PROYECTOS = [
   {
-    id: 1,
-    numero: 'PROYECTO / 01',
-    titulo: 'Dashboard de Gestión de Tareas y Productividad',
+    id: 3,
+    numero: 'PROYECTO / 03',
+    titulo: 'Safe Net - Control Parental y VPN Local',
     descripcion:
-      'Un aplicativo web interactivo para la gestión del tiempo y análisis de productividad personal. Cuenta con un panel analítico en tiempo real y un sistema robusto de configuración de usuario enfocado en las mejores prácticas de desarrollo frontend.',
-    imagen: Proyecto1,
-    tecnologias: ['React', 'Vite', 'JavaScript ES6+', 'Context API', 'CSS3'],
-    linkDemo: 'https://dashboard-de-gesti-n-de-tareas-y-product-joan-cardozos-projects.vercel.app',
-    linkRepo: 'https://github.com/JoanCardozo/Dashboard-de-Gesti-n-de-Tareas-y-Productividad',
+      'Aplicación móvil desarrollada en Android Studio basada en una VPN local de seguridad. Bloquea contenido +18 con soporte multilingüe (Español, Ruso, Japonés). Funciona protegida por contraseña: una vez activada no se puede desactivar sin ella, siendo ideal como control parental para proteger a los niños sin interferir con el resto de funciones del sistema operativo.',
+    imagenes: [SafeNetInterfaz, SafeNetDiagrama],
+    tecnologias: ['Android Studio', 'Java / Kotlin', 'VPN Service', 'Seguridad Móvil', 'Multilingüe'],
+    linkDemo: 'https://github.com/JoanCardozo/App-de-control-parental-y-autocontrol-digital-con-VPN-local/tree/main',
+    linkRepo: 'https://github.com/JoanCardozo/App-de-control-parental-y-autocontrol-digital-con-VPN-local/tree/main',
   },
+  
   {
     id: 2,
     numero: 'PROYECTO / 02',
     titulo: 'Demo Videojuego de Plataforma 2D',
     descripcion:
       'Diseñé e implementé la primera versión jugable de un juego 2D estilo Pixel Art utilizando Unity y C#, aplicando principios de Programación Orientada a Objetos para estructurar la lógica del juego, el control de personaje, la detección de colisiones y la gestión de estados.',
-    imagen: Proyecto2,
+    imagenes: [VideojuegoImg],
     tecnologias: ['Unity Engine', 'C#', 'POO', 'Pixel Art', 'Física 2D'],
     linkDemo: 'https://youtu.be/dGTI2Q7l8t8',
     linkRepo: 'https://github.com/JoanCardozo/Demo-Videojuego-de-Plataformas-2D',
   },
+  {
+    
+    id: 1,
+    numero: 'PROYECTO / 01',
+    titulo: 'Dashboard de Gestión de Tareas y Productividad',
+    descripcion:
+      'Un aplicativo web interactivo para la gestión del tiempo y análisis de productividad personal. Cuenta con un panel analítico en tiempo real y un sistema robusto de configuración de usuario enfocado en las mejores prácticas de desarrollo frontend.',
+    imagenes: [DashboardImg],
+    tecnologias: ['React', 'Vite', 'JavaScript ES6+', 'Context API', 'CSS3'],
+    linkDemo: 'https://dashboard-de-gesti-n-de-tareas-y-product-joan-cardozos-projects.vercel.app',
+    linkRepo: 'https://github.com/JoanCardozo/Dashboard-de-Gesti-n-de-Tareas-y-Productividad',
+  },
+  
 ];
 
 // ===================================================
 // DATOS: STACK TÉCNICO
-// Logos desde CDN (devicon / simple-icons).
-// Si un nodo no tiene "img", usa un ícono de react-icons.
 // ===================================================
 const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons';
 
-// Centro (hub)
 const STACK_CENTRO = {
   id: 'dotnet',
   nombre: '.NET',
@@ -135,7 +150,6 @@ const STACK_CENTRO = {
   blurb: 'Creación de APIs REST y servicios backend.',
 };
 
-// Anillo interno (6)
 const STACK_INTERNO = [
   { id: 'csharp', nombre: 'C#', img: `${DEVICON}/csharp/csharp-original.svg`, color: '#a179dc', blurb: 'Lógica de negocio y aplicaciones backend.' },
   { id: 'sqlserver', nombre: 'SQL Server', img: `${DEVICON}/microsoftsqlserver/microsoftsqlserver-plain.svg`, color: '#cc2927', blurb: 'Modelado y persistencia de datos.' },
@@ -145,7 +159,6 @@ const STACK_INTERNO = [
   { id: 'scrum', nombre: 'SCRUM', Icono: SiScrumalliance, color: '#009fda', blurb: 'Backlog, sprints y ceremonias ágiles.' },
 ];
 
-// Anillo externo (12)
 const STACK_EXTERNO = [
   { id: 'html5', nombre: 'HTML5', img: `${DEVICON}/html5/html5-original.svg`, color: '#e34f26', blurb: 'Marcado semántico y accesible.' },
   { id: 'css3', nombre: 'CSS3', img: `${DEVICON}/css3/css3-original.svg`, color: '#1572b6', blurb: 'Estilos, layouts responsive y diseño visual.' },
@@ -161,7 +174,6 @@ const STACK_EXTERNO = [
   { id: 'figma', nombre: 'Figma', img: `${DEVICON}/figma/figma-original.svg`, color: '#a259ff', blurb: 'Rediseño de componentes de interfaz.' },
 ];
 
-// Posición en elipse (en % del contenedor)
 function posElipse(indice, total, rx, ry, inicio = -90) {
   const ang = (inicio + (indice * 360) / total) * (Math.PI / 180);
   return { x: 50 + rx * Math.cos(ang), y: 50 + ry * Math.sin(ang) };
@@ -172,10 +184,6 @@ const NODOS_STACK = [
   ...STACK_EXTERNO.map((n, i) => ({ ...n, ...posElipse(i, STACK_EXTERNO.length, 43, 41), anillo: 'externo' })),
 ];
 
-// ===================================================
-// DATOS: HERRAMIENTAS DE IA
-// (x / y en % sobre la escena; coinciden con la elipse SVG)
-// ===================================================
 const HERRAMIENTAS_IA = [
   {
     id: 'chatgpt',
@@ -209,9 +217,6 @@ const HERRAMIENTAS_IA = [
   },
 ];
 
-// ===================================================
-// DATOS: HABILIDADES BLANDAS
-// ===================================================
 const HABILIDADES_BLANDAS = [
   { nombre: 'Trabajo en equipo', Icono: FaHandshake },
   { nombre: 'Resolución de problemas', Icono: FaPuzzlePiece },
@@ -223,9 +228,6 @@ const HABILIDADES_BLANDAS = [
   { nombre: 'Atención al detalle', Icono: FaBullseye },
 ];
 
-// ===================================================
-// COMPONENTE: LOGO (imagen con respaldo)
-// ===================================================
 function Logo({ nodo }) {
   const [fallo, setFallo] = useState(false);
   const Icono = nodo.Icono;
@@ -252,11 +254,16 @@ function App() {
   const [iaActiva, setIaActiva] = useState(null);
   const [progreso, setProgreso] = useState(0);
 
-  // ===================================================
-  // EFECTOS
-  // ===================================================
+  const [carruselIndices, setCarruselIndices] = useState({});
 
-  // Scroll: navbar con fondo + barra de progreso
+  const siguienteImagen = (proyectoId, totalImagenes) => {
+    setCarruselIndices((prev) => {
+      const actual = prev[proyectoId] || 0;
+      const siguiente = (actual + 1) % totalImagenes;
+      return { ...prev, [proyectoId]: siguiente };
+    });
+  };
+
   useEffect(() => {
     const alScrollear = () => {
       setNavScrolleado(window.scrollY > 40);
@@ -268,7 +275,6 @@ function App() {
     return () => window.removeEventListener('scroll', alScrollear);
   }, []);
 
-  // Detecta qué sección está visible
   useEffect(() => {
     const observador = new IntersectionObserver(
       (entradas) => {
@@ -298,7 +304,6 @@ function App() {
     return () => clearTimeout(t);
   }, []);
 
-  // Google a veces vuelve a mover el body al traducir: lo reseteamos
   useEffect(() => {
     const observador = new MutationObserver(() => {
       if (document.body.style.top) document.body.style.top = '0px';
@@ -323,7 +328,6 @@ function App() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Helpers para tooltips de la constelación
   const claseHorizontal = (x) => (x < 22 ? 'izquierda' : x > 78 ? 'derecha' : 'centro');
   const claseVertical = (y) => (y > 62 ? 'arriba' : 'abajo');
 
@@ -447,36 +451,64 @@ function App() {
           </h2>
 
           <div className="lista-proyectos">
-            {PROYECTOS.map((proyecto, i) => (
-              <div key={proyecto.id} className={`fila-proyecto ${i % 2 === 1 ? 'invertida' : ''}`}>
-                <div className="proyecto-visual">
-                  <div className="proyecto-visual-marco">
-                    <img src={proyecto.imagen} alt={proyecto.titulo} />
+            {PROYECTOS.map((proyecto, i) => {
+              const imagenesProyecto = proyecto.imagenes || [];
+              const indiceActual = carruselIndices[proyecto.id] || 0;
+              const tieneMultiples = imagenesProyecto.length > 1;
+
+              return (
+                <div key={proyecto.id} className={`fila-proyecto ${i % 2 === 1 ? 'invertida' : ''}`}>
+                  <div 
+                    className="proyecto-visual"
+                    onClick={() => tieneMultiples && siguienteImagen(proyecto.id, imagenesProyecto.length)}
+                    style={{ cursor: tieneMultiples ? 'pointer' : 'default' }}
+                    title={tieneMultiples ? 'Haz clic para ver la siguiente imagen' : ''}
+                  >
+                    <div className="proyecto-visual-marco" style={{ position: 'relative' }}>
+                      <img src={imagenesProyecto[indiceActual]} alt={proyecto.titulo} />
+                      {tieneMultiples && (
+                        <div style={{
+                          position: 'absolute',
+                          bottom: '10px',
+                          right: '10px',
+                          background: 'rgba(0, 0, 0, 0.75)',
+                          color: '#fff',
+                          padding: '4px 10px',
+                          borderRadius: '6px',
+                          fontSize: '0.8rem',
+                          backdropFilter: 'blur(4px)',
+                          border: '1px solid rgba(255, 255, 255, 0.2)',
+                          userSelect: 'none'
+                        }}>
+                          {indiceActual + 1} / {imagenesProyecto.length} (Clic para cambiar)
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="proyecto-info">
+                    <span className="proyecto-numero">{proyecto.numero}</span>
+                    <h3>{proyecto.titulo}</h3>
+                    <p>{proyecto.descripcion}</p>
+
+                    <div className="proyecto-tags">
+                      {proyecto.tecnologias.map((tech, idx) => (
+                        <span key={idx}>{tech}</span>
+                      ))}
+                    </div>
+
+                    <div className="proyecto-enlaces">
+                      <a href={proyecto.linkDemo} target="_blank" rel="noopener noreferrer">
+                        Ver demo <FaArrowRight />
+                      </a>
+                      <a href={proyecto.linkRepo} target="_blank" rel="noopener noreferrer">
+                        Ver código <FaArrowRight />
+                      </a>
+                    </div>
                   </div>
                 </div>
-
-                <div className="proyecto-info">
-                  <span className="proyecto-numero">{proyecto.numero}</span>
-                  <h3>{proyecto.titulo}</h3>
-                  <p>{proyecto.descripcion}</p>
-
-                  <div className="proyecto-tags">
-                    {proyecto.tecnologias.map((tech, idx) => (
-                      <span key={idx}>{tech}</span>
-                    ))}
-                  </div>
-
-                  <div className="proyecto-enlaces">
-                    <a href={proyecto.linkDemo} target="_blank" rel="noopener noreferrer">
-                      Ver demo <FaArrowRight />
-                    </a>
-                    <a href={proyecto.linkRepo} target="_blank" rel="noopener noreferrer">
-                      Ver código <FaArrowRight />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
@@ -526,7 +558,6 @@ function App() {
 
           {/* CONSTELACIÓN */}
           <div className="stack-contenedor" onMouseLeave={() => setNodoActivo(null)}>
-            {/* Anillos + líneas */}
             <svg className="stack-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
               <ellipse cx="50" cy="50" rx="43" ry="41" className="anillo-externo" />
               <ellipse cx="50" cy="50" rx="23" ry="23" className="anillo-interno" />
@@ -542,7 +573,6 @@ function App() {
               )}
             </svg>
 
-            {/* Hub central */}
             <div
               className={`stack-nodo stack-hub ${nodoActivo === STACK_CENTRO.id ? 'activo' : ''}`}
               style={{ left: '50%', top: '50%', '--nodo-color': STACK_CENTRO.color }}
@@ -565,7 +595,6 @@ function App() {
               )}
             </div>
 
-            {/* Nodos */}
             {NODOS_STACK.map((nodo) => {
               const activo = nodoActivo === nodo.id;
               return (
@@ -622,7 +651,6 @@ function App() {
                 </circle>
               </svg>
 
-              {/* Nodo central AI */}
               <div className="ia-centro" style={{ left: '50%', top: '46.7%' }}>
                 <span>AI</span>
               </div>
@@ -680,7 +708,7 @@ function App() {
             <div className="info-idioma">
               <div className="encabezado-idioma">
                 <h4>Inglés</h4>
-                <span className="badge-nivel">B1 INTERMEDIO</span>
+                <span className="badge-nivel">A2 EN PROCESO DE B1</span>
               </div>
               <p>
                 Capacidad para leer documentación técnica, participar en chats de equipo y
