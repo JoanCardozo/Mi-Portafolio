@@ -1,16 +1,26 @@
-# React + Vite
+# Portafolio Personal - Joan Cardozo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+Portafolio personal desarrollado con el propósito de presentar mi trayectoria como desarrollador de software, recopilar mis proyectos y compartir mi experiencia en el área del desarrollo tecnológico.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+En este espacio encontrarás información sobre mi perfil profesional, experiencia, proyectos desarrollados y competencias técnicas y personales, reflejando mi proceso de aprendizaje y crecimiento en el desarrollo de software.
 
-## React Compiler
+El portafolio también representa mi interés por seguir adquiriendo conocimientos, afrontar nuevos retos y participar en proyectos que me permitan continuar creciendo profesionalmente.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Vista previa
 
-## Expanding the ESLint configuration
+<!-- Agregar aquí una captura de pantalla del portafolio -->
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<img width="1894" height="914" alt="image" src="https://github.com/user-attachments/assets/52674cdd-0ed4-4ba1-ab05-05c957d1f234" />
+
+
+## Acceso al portafolio
+
+[**[Visitar mi portafolio personal](https://joancardozo.github.io/Mi-Portafolio/)**](https://joancardozo.github.io/Mi-Portafolio/)
+
+## Estado del proyecto
+
+**Activo.**
+
+Este proyecto se encuentra en constante evolución y actualización, incorporando mejoras en su presentación y contenido a medida que avanzo en mi formación y experiencia profesional.
